@@ -1,4 +1,4 @@
-import { migrate, seed } from "#postgres/knex.js";
+import { migrate, seed } from "#postgres/knex.js"; //импорт наших миграций и сида
 import { Command } from "commander";
 const program = new Command();
 
@@ -7,6 +7,8 @@ program
     .argument("[type]", "latest|rollback|status|down|up|list")
     .argument("[arg]", "version")
     .action(async (action, arg) => {
+        // закрепление за аргументом команды метода миграции
+
         if (!action) return;
         if (action === "latest") await migrate.latest();
         if (action === "rollback") await migrate.rollback();
@@ -14,9 +16,13 @@ program
         if (action === "up") await migrate.up(arg);
         if (action === "list") await migrate.list();
         if (action === "make") await migrate.make(arg);
+
         process.exit(0);
     });
+
 program.command("seed [action] [arg]").action(async (action, arg) => {
+    // закрепление за аргументом команды метода сидера
+
     if (!action) return;
     if (action === "run") await seed.run();
     if (action === "make") await seed.make(arg);

@@ -1,4 +1,7 @@
 /**
+ * Сидер добавляет одну таблицу с id "some_spreadsheet". При конфликте
+ * уникального значения пропускает выполнение операции
+ *
  * @param {import("knex").Knex} knex
  * @returns {Promise<void>}
  */

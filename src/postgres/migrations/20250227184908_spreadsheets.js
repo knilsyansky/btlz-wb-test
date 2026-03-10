@@ -1,4 +1,6 @@
 /**
+ * Создание таблицы "Таблицы", primary key - spreadsheet_id
+ *
  * @param {import("knex").Knex} knex
  * @returns {Promise<void>}
  */

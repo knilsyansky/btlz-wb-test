@@ -40,6 +40,7 @@ function logSeedMake(name: string) {
     console.log(`Created seed: ${name.split(/\/|\\/).pop()}`);
 }
 
+// структура методов миграции 
 export const migrate = {
     latest: async () => {
         logMigrationResults("latest", await knex.migrate.latest());
@@ -65,6 +66,7 @@ export const migrate = {
     },
 };
 
+// структура методов сидера 
 export const seed = {
     run: async () => {
         logSeedRun(await knex.seed.run());
